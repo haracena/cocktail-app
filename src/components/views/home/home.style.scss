@@ -1,0 +1,22 @@
+.header {
+  width: 100vw;
+  height: 40vh;
+  background-image: url('../../../assets/images/bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.header__box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__box__search {
+  width: 250px;
+}

@@ -1,0 +1,31 @@
+.cocktail-sidebar {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+.cocktail-sidebar__image {
+  height: 40%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.cocktail-sidebar__title {
+  color: white;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.cocktail-sidebar__subtitle {
+  color: grey;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.cocktail-sidebar__instruction {
+  color: grey;
+  text-align: center;
+  padding: 0px 15px;
+}
