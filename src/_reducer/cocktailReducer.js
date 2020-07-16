@@ -4,7 +4,6 @@ import { types } from '../_types/types';
 const initialState = {
   cocktails: [],
   activeCocktail: {},
-  active: null
 }
 
 export const cocktailReducer = (state = initialState, action) => {

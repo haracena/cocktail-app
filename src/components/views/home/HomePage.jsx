@@ -20,8 +20,9 @@ const HomePage = () => {
           <SearchBar />
         </div>
       </div>
-      
-      <CardList list={ cocktails } />
+      <div className='card-list'>
+        <CardList list={ cocktails } />
+      </div>
     </div>
   )
 }

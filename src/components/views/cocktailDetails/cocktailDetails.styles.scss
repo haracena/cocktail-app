@@ -1,31 +1,43 @@
 .cocktail-sidebar {
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  padding: 16px;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cocktail-sidebar__image {
-  height: 40%;
+  height: 55vh;
   width: 100%;
-  background-position: center;
+  background-position: center top;
   background-size: cover;
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 20px;
 }
 
 .cocktail-sidebar__title {
   color: white;
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 0px;
+  margin: 10px 0px;
 }
 
 .cocktail-sidebar__subtitle {
-  color: grey;
+  color: white;
   text-align: center;
-  margin-bottom: 0px;
+  font-size: 20px;
+  margin: 10px 0px;
 }
 
 .cocktail-sidebar__instruction {
-  color: grey;
+  color: darken($color: white, $amount: 15);
   text-align: center;
-  padding: 0px 15px;
+}
+
+.cocktail-list {
+  padding: 16px;
+  height: 100vh;
+  overflow-y: scroll;
 }

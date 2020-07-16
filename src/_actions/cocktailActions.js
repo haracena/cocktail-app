@@ -29,6 +29,19 @@ export const startCocktailDetails = (idCocktail) => {
   }
 };
 
+export const startRandomCocktail = (cocktailName) => {
+  return async (dispatch) => {
+    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+    const data = await response.json();
+    const { drinks } = data;
+    if (drinks != null) {
+      dispatch(addCocktailDetails(drinks[0]));
+    } else {
+      // handle de cuando drinks es null, mostrar que no hay resultados
+    }
+  }
+};
+
 const addCocktailDetails = (payload) => ({
   type: types.ADD_COCKTAIL_DETAILS,
   payload
