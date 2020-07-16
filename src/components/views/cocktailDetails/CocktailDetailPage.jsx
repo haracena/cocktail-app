@@ -32,25 +32,23 @@ const CocktailDetailsPage = () => {
     if (ingredientsMeasure.length > 0) {
       dispatch(startSearchByIngredientName(ingredientsMeasure[0].ingredient));
     }
-  }, [ingredientsMeasure]);
+  }, [ingredientsMeasure, dispatch]);
 
   return (
-    <div>
-      <Row>
-        <Col xs={24} md={8}>
-          <CocktailSidebar cocktailValues={cocktailValues} />
-        </Col>
-        <Col xs={24} md={16}>
-          {/* hacer componente aparte */}
-          <div className='cocktail-list'>
-            <Divider orientation='left'>Ingredients</Divider>
-            <CardList list={ingredientsMeasure} />
-            <Divider orientation='left'>Related Drinks</Divider>
-            <CardList list={relatedCocktails} />
-          </div>
-        </Col>
-      </Row>
-    </div>
+    <Row>
+      <Col xs={24} md={8}>
+        <CocktailSidebar cocktailValues={cocktailValues} />
+      </Col>
+      <Col xs={24} md={16}>
+        {/* hacer componente aparte */}
+        <div className='cocktail-list'>
+          <Divider orientation='left'>Ingredients</Divider>
+          <CardList list={ingredientsMeasure} />
+          <Divider orientation='left'>Related Drinks</Divider>
+          <CardList list={relatedCocktails} />
+        </div>
+      </Col>
+    </Row>
   );
 };
 

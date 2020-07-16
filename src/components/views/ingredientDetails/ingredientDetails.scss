@@ -1,4 +1,4 @@
-.cocktail-sidebar {
+.ingredient-sidebar {
   height: 100vh;
   width: 100%;
   padding: 16px;
@@ -9,34 +9,40 @@
   justify-content: center;
 }
 
-.cocktail-sidebar__image {
-  height: 55vh;
+.ingredient-sidebar__image {
+  height: 45vh;
   width: 100%;
   background-position: center top;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.cocktail-sidebar__title {
+.ingredient-sidebar__title {
   color: white;
   font-size: 30px;
   text-align: center;
   margin: 10px 0px;
 }
 
-.cocktail-sidebar__subtitle {
+.ingredient-sidebar__subtitle {
   color: white;
   text-align: center;
   font-size: 20px;
   margin: 10px 0px;
 }
 
-.cocktail-sidebar__instruction {
+.ingredient-sidebar__history {
+  overflow-y: scroll;
+}
+
+.ingredient-sidebar__history__text {
   color: darken($color: white, $amount: 15);
   text-align: center;
 }
 
-.cocktail-list {
+.ingredient-list {
   padding: 16px;
   height: 100vh;
   overflow-y: scroll;

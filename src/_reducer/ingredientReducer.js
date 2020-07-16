@@ -3,7 +3,7 @@ import { types } from '../_types/types';
 
 const initialState = {
   relatedCocktails: [],
-  ingredient: [],
+  activeIngredient: {},
 }
 
 export const ingredientReducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ export const ingredientReducer = (state = initialState, action) => {
     case types.ADD_INGREDIENT_ACTIVE:
       return {
         ...state,
-        ingredient: [...action.payload]
+        activeIngredient: action.payload
       }
 
     case types.ADD_RELATED_COCKTAILS:

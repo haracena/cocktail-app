@@ -2,12 +2,12 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import CustomCard from './CustomCard';
 
-const CardList = ({ list }) => {
+const CardList = ({ list, xl = 4 }) => {
   return (
     <Row gutter={[16, 16]}>
       {list ? (
         list.map((item) => (
-          <Col xs={12} md={8} xl={4} key={item.ingredient ? item.ingredient : item.idDrink}>
+          <Col xs={12} md={8} xl={xl} key={item.ingredient ? item.ingredient : item.idDrink}>
             <CustomCard
               name={item.ingredient ? item.ingredient : item.strDrink}
               img={item.ingredient ? item.img : item.strDrinkThumb}

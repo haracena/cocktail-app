@@ -17,7 +17,7 @@ export const getIngredientsMeasure = (cocktail) => {
   return list;
 }
 
-const getIngredientImg = (ingredient) => {
+export const getIngredientImg = (ingredient) => {
   const searchName = ingredient.replace(' ', '%20');
   return `https://www.thecocktaildb.com/images/ingredients/${searchName}-Medium.png`;
 }
