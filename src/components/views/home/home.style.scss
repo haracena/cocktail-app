@@ -1,7 +1,7 @@
 .header {
   width: 100vw;
   height: 40vh;
-  background-image: url('../../../assets/images/bg2.jpg');
+  background-image: url('../../../assets/images/bg3.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -18,9 +18,24 @@
 }
 
 .header__box__search {
-  width: 250px;
+  width: 500px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.header__box__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 10px;
 }
 
 .card-list {
   padding: 16px;
+}
+
+@media (max-width: 480) {
+  .header__box__search {
+    width: 300px;
+  }
 }

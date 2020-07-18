@@ -1,13 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { startSearchCocktail } from '../../../_actions/cocktailActions';
-import { Input } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
-
+import {
+  startSearchCocktail,
+  startSearchByCategory,
+  startSearchByAlcoholic,
+} from '../../../_actions/cocktailActions';
+import { Input, Button, Row, Col } from 'antd';
 const { Search } = Input;
 
-const SearchBar = () => {
+const SearchBar = ({ activeSearch }) => {
   const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
 
@@ -28,16 +30,66 @@ const SearchBar = () => {
     setSearchValue(e.target.value);
   };
 
+  const handleCategoryClick = (category) => {
+    dispatch(startSearchByCategory(category));
+  };
+
+  const handleAlcoholicClick = (type) => {
+    dispatch(startSearchByAlcoholic(type));
+  };
+
   return (
-    <form onSubmit={handleSubmit} style={{ width: '350px' }}>
+    <form onSubmit={handleSubmit} className='header__box__search'>
       <Search
-        placeholder='cocktail'
+        placeholder='drink name'
         name='search'
         value={searchValue}
         onChange={handleChange}
         onSearch={handleSearch}
         enterButton
       />
+      <Row justify='center' gutter={[8, 8]} style={{ paddingTop: 10 }}>
+        <Col>
+          <Button
+            onClick={() => {
+              handleCategoryClick('Cocktail');
+            }}
+            disabled={activeSearch === 'Cocktail' ? true : false}
+          >
+            Cocktail
+          </Button>
+        </Col>
+        <Col>
+          <Button
+            onClick={() => {
+              handleCategoryClick('Ordinary_Drink');
+            }}
+            disabled={activeSearch === 'Ordinary_Drink' ? true : false}
+          >
+            Ordinary drink
+          </Button>
+        </Col>
+        <Col>
+          <Button
+            onClick={() => {
+              handleAlcoholicClick('Alcoholic');
+            }}
+            disabled={activeSearch === 'Alcoholic' ? true : false}
+          >
+            Alcoholic
+          </Button>
+        </Col>
+        <Col>
+          <Button
+            onClick={() => {
+              handleAlcoholicClick('Non_Alcoholic');
+            }}
+            disabled={activeSearch === 'Non_Alcoholic' ? true : false}
+          >
+            Non Alcoholic
+          </Button>
+        </Col>
+      </Row>
     </form>
   );
 };

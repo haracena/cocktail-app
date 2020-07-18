@@ -5,8 +5,7 @@ import CardList from '../../shared/CardList';
 const DrinksRelated = ({ drinks }) => {
   return (
     <div>
-      <Divider orientation='left'>Drinks Related</Divider>
-      <CardList list={drinks} xl={6} />
+      <CardList list={drinks} xl={6} title='Drinks related' />
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { types } from '../_types/types';
 const initialState = {
   cocktails: [],
   activeCocktail: {},
+  activeSearch: ''
 }
 
 export const cocktailReducer = (state = initialState, action) => {
@@ -18,6 +19,12 @@ export const cocktailReducer = (state = initialState, action) => {
       return {
         ...state,
         activeCocktail: action.payload
+      }
+    
+    case types.ADD_ACTIVE_SEARCH:
+      return {
+        ...state,
+        activeSearch: action.payload
       }
 
     default:

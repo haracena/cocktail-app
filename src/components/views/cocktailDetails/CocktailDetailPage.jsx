@@ -40,12 +40,9 @@ const CocktailDetailsPage = () => {
         <CocktailSidebar cocktailValues={cocktailValues} />
       </Col>
       <Col xs={24} md={16}>
-        {/* hacer componente aparte */}
         <div className='cocktail-list'>
-          <Divider orientation='left'>Ingredients</Divider>
-          <CardList list={ingredientsMeasure} />
-          <Divider orientation='left'>Related Drinks</Divider>
-          <CardList list={relatedCocktails} />
+          <CardList list={ingredientsMeasure} title='Ingredients' />
+          <CardList list={relatedCocktails} title='Related Drinks' />
         </div>
       </Col>
     </Row>
