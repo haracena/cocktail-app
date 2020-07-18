@@ -37,6 +37,12 @@ export const cocktailReducer = (state = initialState, action) => {
         fetchingCocktails: action.payload
       }
 
+     case types.FETCHING_ACTIVE_COCKTAIL:
+      return{
+        ...state,
+        fetchingActiveCocktail: action.payload
+      } 
+
     default:
       return state;
   }

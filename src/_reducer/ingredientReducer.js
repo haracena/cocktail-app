@@ -23,6 +23,18 @@ export const ingredientReducer = (state = initialState, action) => {
         ...state,
         relatedCocktails: [...action.payload]
       }
+    
+    case types.FETCHING_RELATED_COCKTAILS:
+      return {
+        ...state,
+        fetchingRelatedCoctails: action.payload
+      }
+
+    case types.FETCHING_ACTIVE_INGREDIENT:
+      return {
+        ...state,
+        fetchingActiveIngredient: action.payload
+      }
   
     default:
       return state;

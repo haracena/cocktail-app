@@ -52,22 +52,26 @@ const setCocktails = (payload) => ({
 
 export const startCocktailDetails = (idCocktail) => {
   return async (dispatch) => {
+    dispatch(fetchingActiveCocktail(true));
     const response = await fetch(`${API_URL}lookup.php?i=${idCocktail}`);
     const data = await response.json();
     const { drinks } = data;
     if (drinks != null) {
       dispatch(addCocktailDetails(drinks[0]));
+      dispatch(fetchingActiveCocktail(false));
     }
   }
 };
 
 export const startRandomCocktail = (cocktailName) => {
   return async (dispatch) => {
+    dispatch(fetchingActiveCocktail(true));
     const response = await fetch(`${API_URL}random.php`);
     const data = await response.json();
     const { drinks } = data;
     if (drinks != null) {
       dispatch(addCocktailDetails(drinks[0]));
+      dispatch(fetchingActiveCocktail(false));
     } else {
       // handle de cuando drinks es null, mostrar que no hay resultados
     }
@@ -88,3 +92,9 @@ const fetchingCocktails = (isLoading) => ({
   type: types.FETCHING_COCKTAILS,
   payload: isLoading
 })
+
+const fetchingActiveCocktail = (isLoading) => ({
+  type: types.FETCHING_ACTIVE_COCKTAIL,
+  payload: isLoading
+})
+

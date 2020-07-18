@@ -10,21 +10,21 @@ import './cocktailDetails.styles.scss';
 import CardList from '../../shared/CardList';
 import CocktailSidebar from './CocktailSidebar';
 import { startSearchByIngredientName } from '../../../_actions/ingredientActions';
+import Loading from '../../shared/Loading';
 
 const CocktailDetailsPage = () => {
   const { cocktailId } = useParams();
-  const [cocktailValues, setCocktailValues] = useState({});
   const [ingredientsMeasure, setIngredientsMeasure] = useState([]);
   const dispatch = useDispatch();
   const { activeCocktail } = useSelector((state) => state.cocktail);
   const { relatedCocktails } = useSelector((state) => state.ingredient);
+  const { fetchingRelatedCoctails } = useSelector((state) => state.ingredient);
 
   useEffect(() => {
     dispatch(startCocktailDetails(cocktailId));
   }, [cocktailId, dispatch]);
 
   useEffect(() => {
-    setCocktailValues(activeCocktail);
     setIngredientsMeasure(getIngredientsMeasure(activeCocktail));
   }, [activeCocktail]);
 
@@ -37,12 +37,18 @@ const CocktailDetailsPage = () => {
   return (
     <Row>
       <Col xs={24} md={8}>
-        <CocktailSidebar cocktailValues={cocktailValues} />
+        <CocktailSidebar />
       </Col>
       <Col xs={24} md={16}>
         <div className='cocktail-list'>
-          <CardList list={ingredientsMeasure} title='Ingredients' />
-          <CardList list={relatedCocktails} title='Related Drinks' />
+          {fetchingRelatedCoctails ? (
+            <Loading />
+          ) : (
+            <div>
+              <CardList list={ingredientsMeasure} title='Ingredients' />
+              <CardList list={relatedCocktails} title='Related Drinks' />
+            </div>
+          )}
         </div>
       </Col>
     </Row>

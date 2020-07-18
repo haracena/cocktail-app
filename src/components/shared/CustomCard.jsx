@@ -6,7 +6,7 @@ const { Meta } = Card;
 const CustomCard = ({ id, name, img, measure }) => {
 
   return (
-    <Link to={measure ? `/ingredient/${name}` : `/cocktail/${id}`}>
+    <Link to={id ? `/cocktail/${id}` : `/ingredient/${name}`}>
       <Card
         hoverable
         cover={<img src={img} alt={name} />}

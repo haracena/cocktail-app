@@ -7,11 +7,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  // overflow-y: auto;
 }
 
 .ingredient-sidebar__image {
   height: 45vh;
   width: 100%;
+  min-width: 350;
+  min-height: 350;
   background-position: center top;
   background-size: contain;
   background-repeat: no-repeat;
@@ -34,7 +37,8 @@
 }
 
 .ingredient-sidebar__history {
-  overflow-y: scroll;
+  overflow-y: auto;
+  height: 40vh;
 }
 
 .ingredient-sidebar__history__text {
