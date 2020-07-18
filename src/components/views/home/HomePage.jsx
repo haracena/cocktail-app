@@ -6,7 +6,7 @@ import './home.style.scss';
 import CardList from '../../shared/CardList';
 import { startSearchByCategory } from '../../../_actions/cocktailActions';
 import { UpOutlined } from '@ant-design/icons';
-import { BackTop, Button } from 'antd';
+import { BackTop, Button, Empty } from 'antd';
 import Loading from '../../shared/Loading';
 
 const HomePage = () => {
@@ -16,10 +16,8 @@ const HomePage = () => {
   const { fetchingCocktails } = useSelector((state) => state.cocktail);
 
   useEffect(() => {
-    if (cocktails.length === 0) {
-      dispatch(startSearchByCategory('Cocktail'));
-    }
-  }, [cocktails, dispatch]);
+    dispatch(startSearchByCategory('Cocktail'));
+  }, []);
 
   return (
     <div>
@@ -31,6 +29,8 @@ const HomePage = () => {
       <div className='card-list'>
         {fetchingCocktails ? (
           <Loading />
+        ) : cocktails.length === 0 ? (
+          <Empty description={<span>There is no results</span>} />
         ) : (
           <CardList
             list={cocktails}

@@ -7,12 +7,12 @@ export const startSearchCocktail = (cocktailName) => {
     const response = await fetch(`${API_URL}search.php?s=${cocktailName}`);
     const data = await response.json();
     const { drinks } = data;
+    dispatch(fetchingCocktails(false));
     if (drinks != null) {
       dispatch(setCocktails(drinks));
       dispatch(addActiveSearch(cocktailName));
-      dispatch(fetchingCocktails(false));
     } else {
-      // handle de cuando drinks es null, mostrar que no hay resultados
+      dispatch(setCocktails([]));
     }
   }
 };
@@ -23,10 +23,10 @@ export const startSearchByCategory = (category) => {
     const response = await fetch(`${API_URL}filter.php?c=${category}`);
     const data = await response.json();
     const { drinks } = data;
+    dispatch(fetchingCocktails(false));
     if (drinks != null) {
       dispatch(setCocktails(drinks));
       dispatch(addActiveSearch(category));
-      dispatch(fetchingCocktails(false));
     }
   }
 }
@@ -37,10 +37,10 @@ export const startSearchByAlcoholic = (type) => {
     const response = await fetch(`${API_URL}filter.php?a=${type}`);
     const data = await response.json();
     const { drinks } = data;
+    dispatch(fetchingCocktails(false));
     if (drinks != null) {
       dispatch(setCocktails(drinks));
       dispatch(addActiveSearch(type));
-      dispatch(fetchingCocktails(false));
     }
   }
 }
@@ -56,9 +56,9 @@ export const startCocktailDetails = (idCocktail) => {
     const response = await fetch(`${API_URL}lookup.php?i=${idCocktail}`);
     const data = await response.json();
     const { drinks } = data;
+    dispatch(fetchingActiveCocktail(false));
     if (drinks != null) {
       dispatch(addCocktailDetails(drinks[0]));
-      dispatch(fetchingActiveCocktail(false));
     }
   }
 };
@@ -69,9 +69,9 @@ export const startRandomCocktail = (cocktailName) => {
     const response = await fetch(`${API_URL}random.php`);
     const data = await response.json();
     const { drinks } = data;
+    dispatch(fetchingActiveCocktail(false));
     if (drinks != null) {
       dispatch(addCocktailDetails(drinks[0]));
-      dispatch(fetchingActiveCocktail(false));
     } else {
       // handle de cuando drinks es null, mostrar que no hay resultados
     }
@@ -96,5 +96,10 @@ const fetchingCocktails = (isLoading) => ({
 const fetchingActiveCocktail = (isLoading) => ({
   type: types.FETCHING_ACTIVE_COCKTAIL,
   payload: isLoading
+})
+
+const errorFetchingCocktails = (isError) => ({
+  type: types.ERROR_COCKTAILS,
+  payload: isError
 })
 

@@ -36,10 +36,10 @@ const CocktailDetailsPage = () => {
 
   return (
     <Row>
-      <Col xs={24} md={8}>
+      <Col xs={24} md={12} xl={8}>
         <CocktailSidebar />
       </Col>
-      <Col xs={24} md={16}>
+      <Col xs={24} md={12} xl={16}>
         <div className='cocktail-list'>
           {fetchingRelatedCoctails ? (
             <Loading />

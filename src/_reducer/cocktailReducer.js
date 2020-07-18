@@ -8,42 +8,48 @@ const initialState = {
   activeCocktail: {},
   fetchingActiveCocktail: false,
   errorActiveCocktail: false,
-  activeSearch: ''
-}
+  activeSearch: '',
+};
 
 export const cocktailReducer = (state = initialState, action) => {
-  switch ( action.type ) {
+  switch (action.type) {
     case types.ADD_COCKTAILS:
       return {
         ...state,
-        cocktails: [...action.payload]
+        cocktails: [...action.payload],
       };
-    
+
     case types.ADD_COCKTAIL_DETAILS:
       return {
         ...state,
-        activeCocktail: action.payload
-      }
-    
+        activeCocktail: action.payload,
+      };
+
     case types.ADD_ACTIVE_SEARCH:
       return {
         ...state,
-        activeSearch: action.payload
-      }
+        activeSearch: action.payload,
+      };
 
     case types.FETCHING_COCKTAILS:
       return {
         ...state,
-        fetchingCocktails: action.payload
-      }
+        fetchingCocktails: action.payload,
+      };
 
-     case types.FETCHING_ACTIVE_COCKTAIL:
-      return{
+    case types.FETCHING_ACTIVE_COCKTAIL:
+      return {
         ...state,
-        fetchingActiveCocktail: action.payload
-      } 
+        fetchingActiveCocktail: action.payload,
+      };
+    
+    case types.ERROR_COCKTAILS:
+      return {
+        ...state,
+        errorCocktails: action.payload
+      }
 
     default:
       return state;
   }
-}
+};
