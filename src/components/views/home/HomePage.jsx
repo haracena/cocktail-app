@@ -7,19 +7,19 @@ import CardList from '../../shared/CardList';
 import { startSearchByCategory } from '../../../_actions/cocktailActions';
 import { UpOutlined } from '@ant-design/icons';
 import { BackTop, Button } from 'antd';
+import Loading from '../../shared/Loading';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const { cocktails } = useSelector((state) => state.cocktail);
-  const { activeSearch } = useSelector(state => state.cocktail);
+  const { activeSearch } = useSelector((state) => state.cocktail);
+  const { fetchingCocktails } = useSelector((state) => state.cocktail);
 
   useEffect(() => {
-    dispatch(startSearchByCategory('Cocktail'));
-  }, [])
-
-  useEffect(() => {
-    console.log(cocktails);
-  }, [cocktails]);
+    if (cocktails.length === 0) {
+      dispatch(startSearchByCategory('Cocktail'));
+    }
+  }, [cocktails, dispatch]);
 
   return (
     <div>
@@ -29,13 +29,21 @@ const HomePage = () => {
         </div>
       </div>
       <div className='card-list'>
-        <CardList list={cocktails} title={activeSearch} orientation='center' />
+        {fetchingCocktails ? (
+          <Loading />
+        ) : (
+          <CardList
+            list={cocktails}
+            title={activeSearch}
+            orientation='center'
+          />
+        )}
       </div>
       <BackTop duration={1000}>
-          <Button shape='circle' type='primary' size='large'>
-            <UpOutlined />
-          </Button>
-        </BackTop>
+        <Button shape='circle' type='primary' size='large'>
+          <UpOutlined />
+        </Button>
+      </BackTop>
     </div>
   );
 };

@@ -3,7 +3,11 @@ import { types } from '../_types/types';
 
 const initialState = {
   cocktails: [],
+  fetchingCocktails: false,
+  errorCocktails: false,
   activeCocktail: {},
+  fetchingActiveCocktail: false,
+  errorActiveCocktail: false,
   activeSearch: ''
 }
 
@@ -25,6 +29,12 @@ export const cocktailReducer = (state = initialState, action) => {
       return {
         ...state,
         activeSearch: action.payload
+      }
+
+    case types.FETCHING_COCKTAILS:
+      return {
+        ...state,
+        fetchingCocktails: action.payload
       }
 
     default:

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startCocktailDetails } from '../../../_actions/cocktailActions';
 import { getIngredientsMeasure } from '../../../helpers/getCocktailDetails';
 import { useState } from 'react';
-import { Row, Col, Divider } from 'antd';
+import { Row, Col } from 'antd';
 import './cocktailDetails.styles.scss';
 import CardList from '../../shared/CardList';
 import CocktailSidebar from './CocktailSidebar';

@@ -3,7 +3,11 @@ import { types } from '../_types/types';
 
 const initialState = {
   relatedCocktails: [],
+  fetchingRelatedCoctails: false,
+  errorRelatedCocktails: false,
   activeIngredient: {},
+  fetchingActiveIngredient: false,
+  errorActiveIngredient: false
 }
 
 export const ingredientReducer = (state = initialState, action) => {
