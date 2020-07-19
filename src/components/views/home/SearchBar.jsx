@@ -41,7 +41,7 @@ const SearchBar = ({ activeSearch }) => {
   return (
     <form onSubmit={handleSubmit} className='header__box__search'>
       <Search
-        placeholder='drink name'
+        placeholder='margarita'
         name='search'
         value={searchValue}
         onChange={handleChange}

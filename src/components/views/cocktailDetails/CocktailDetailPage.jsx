@@ -42,7 +42,7 @@ const CocktailDetailsPage = () => {
       <Col xs={24} md={12} xl={16}>
         <div className='cocktail-list'>
           {fetchingRelatedCoctails ? (
-            <Loading />
+            <Loading height={100} />
           ) : (
             <div>
               <CardList list={ingredientsMeasure} title='Ingredients' />

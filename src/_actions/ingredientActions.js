@@ -1,16 +1,16 @@
 const { types } = require("../_types/types");
+const API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
 export const startSearchByIngredientName = (ingredient) => {
   return async (dispatch) => {
     dispatch(fetchingRelatedCocktails(true));
-    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    const response = await fetch(`${API_URL}filter.php?i=${ingredient}`);
     const data = await response.json();
     const { drinks } = data;
     if (drinks != null) {
       dispatch(setRelatedCocktails(drinks));
       dispatch(fetchingRelatedCocktails(false));
     }
-    // porner validacion
   }
 }
 
@@ -22,12 +22,14 @@ const setRelatedCocktails = (payload) => ({
 export const startSearchIngredient = (ingredientName) => {
   return async (dispatch) => {
     dispatch(fetchingActiveIngredient(true));
-    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredientName}`);
+    const response = await fetch(`${API_URL}search.php?i=${ingredientName}`);
     const data = await response.json();
     const { ingredients } = data;
+    dispatch(fetchingActiveIngredient(false));
     if (ingredients != null) {
       dispatch(setActiveIngredient(ingredients[0]));
-      dispatch(fetchingActiveIngredient(false));
+    } else {
+      dispatch(setActiveIngredient([]));
     }
   } 
 }

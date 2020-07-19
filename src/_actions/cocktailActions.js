@@ -13,6 +13,7 @@ export const startSearchCocktail = (cocktailName) => {
       dispatch(addActiveSearch(cocktailName));
     } else {
       dispatch(setCocktails([]));
+      dispatch(addActiveSearch(cocktailName));
     }
   }
 };

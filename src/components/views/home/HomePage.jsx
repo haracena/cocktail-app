@@ -21,6 +21,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <div className='logo' />
       <div className='header'>
         <div className='header__box'>
           <SearchBar activeSearch={activeSearch} />

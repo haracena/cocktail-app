@@ -32,7 +32,7 @@ const IngredientDetails = () => {
       <Col xs={24} md={14}>
         <div className='ingredient-list'>
           {fetchingRelatedCoctails ? (
-            <Loading />
+            <Loading height={100} />
           ) : (
             <DrinksRelated drinks={relatedCocktails} />
           )}

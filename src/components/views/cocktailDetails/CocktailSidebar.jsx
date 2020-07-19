@@ -16,7 +16,7 @@ const CocktailSidebar = () => {
   return (
     <div className='cocktail-sidebar'>
       {fetchingActiveCocktail ? (
-        <Loading />
+        <Loading color='black' />
       ) : (
         <div>
           <h1 className='cocktail-sidebar__title'>{activeCocktail.strDrink}</h1>
