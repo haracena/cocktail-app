@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import SearchBar from './SearchBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -8,6 +8,7 @@ import { startSearchByCategory } from '../../../_actions/cocktailActions';
 import { UpOutlined } from '@ant-design/icons';
 import { BackTop, Button, Empty } from 'antd';
 import Loading from '../../shared/Loading';
+import NavBar from '../../shared/NavBar';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -20,8 +21,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <div className='logo' />
+    <Fragment>
+      <NavBar />
       <div className='header'>
         <div className='header__box'>
           <SearchBar activeSearch={activeSearch} />
@@ -45,7 +46,7 @@ const HomePage = () => {
           <UpOutlined />
         </Button>
       </BackTop>
-    </div>
+    </Fragment>
   );
 };
 

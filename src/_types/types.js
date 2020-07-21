@@ -8,5 +8,13 @@ export const types = {
   ADD_INGREDIENT_ACTIVE: '[ingredientReducer] add active ingredient',
   FETCHING_ACTIVE_INGREDIENT: '[ingredientReducer] fetching active ingredient',
   ADD_RELATED_COCKTAILS: '[ingredientReducer] add related cocktails',
-  FETCHING_RELATED_COCKTAILS: '[ingredientReducer] fetching related cocktails'
+  FETCHING_RELATED_COCKTAILS: '[ingredientReducer] fetching related cocktails',
+  LOGIN: '[authReducer] login',
+  LOGOUT: '[authReducer] logout',
+  FETCHING_LOGIN: '[authReducer] fetching login',
+  AUTH_ERROR: '[authReducer] auth error',
+  ADD_FAVOURITE: '[userReducer] add favourite',
+  REMOVE_FAVOURITE: '[userReducer] remove favourite',
+  SET_FAVOURITES: '[userReducer] set favourites',
+  FETCHING_FAVOURITES: '[userReducer] fetching favourites'
 };

@@ -1,5 +1,5 @@
 .ingredient-sidebar {
-  height: 100vh;
+  height: calc(100vh - 46px);
   width: 100%;
   padding: 16px;
   background-color: black;
@@ -49,6 +49,6 @@
 
 .ingredient-list {
   padding: 16px;
-  height: 100vh;
+  height: calc(100vh - 46px);
   overflow-y: scroll;
 }

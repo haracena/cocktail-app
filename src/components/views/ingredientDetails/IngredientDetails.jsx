@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { useEffect } from 'react';
@@ -11,6 +11,7 @@ import IngredientSidebar from './IngredientSidebar';
 import './ingredientDetails.scss';
 import DrinksRelated from './DrinksRelated';
 import Loading from '../../shared/Loading';
+import NavBar from '../../shared/NavBar';
 
 const IngredientDetails = () => {
   const { ingredientName } = useParams();
@@ -25,20 +26,23 @@ const IngredientDetails = () => {
   }, [ingredientName, dispatch]);
 
   return (
-    <Row>
-      <Col xs={24} md={10}>
-        <IngredientSidebar ingredientName={ingredientName} />
-      </Col>
-      <Col xs={24} md={14}>
-        <div className='ingredient-list'>
-          {fetchingRelatedCoctails ? (
-            <Loading height={100} />
-          ) : (
-            <DrinksRelated drinks={relatedCocktails} />
-          )}
-        </div>
-      </Col>
-    </Row>
+    <Fragment>
+      <NavBar />
+      <Row>
+        <Col xs={24} md={10}>
+          <IngredientSidebar ingredientName={ingredientName} />
+        </Col>
+        <Col xs={24} md={14}>
+          <div className='ingredient-list'>
+            {fetchingRelatedCoctails ? (
+              <Loading height={100} />
+            ) : (
+              <DrinksRelated drinks={relatedCocktails} />
+            )}
+          </div>
+        </Col>
+      </Row>
+    </Fragment>
   );
 };
 
